@@ -135,7 +135,7 @@ myApp 1.0.0 code-push release-react android_ios_demo android
 myApp 1.0.2 code-push release-react android_ios_demo android -t 1.0.2 -d Staging --dev true  --des "汉服大家好" -m true
 
 code-push release-react 平台(ios\android) -t (版本号) -d (Staging测试环境|| Production 生产环境) --des (更新介绍) -m true(强制更新)
-
+//比如： code-push release-react cloud-miner-android android -d "Production" --des "界面优化" -m true
 
 ```
 
