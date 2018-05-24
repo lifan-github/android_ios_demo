@@ -66,7 +66,7 @@ CodePush账号支持 github和 Microsofe，选其中一个就可以了。
 得到：
 
 ```
-fdb117b3cb4b46c2bcfd367b07220e55a49528a4
+fdb117b3cb4b46c2bcfd367b07220e55a49528a4 // 浏览器等到的token
 
 Prodction: HnjS3VTEbsGbqEa70Hh7RneEVsyBe45d0faa-ecd3-4aeb-9255-7f3255171b68  //生产环境
 Staging:  2YwiYWXLVM4elR8noUyTMI0-eflTe45d0faa-ecd3-4aeb-9255-7f3255171b68 // 开发测试
