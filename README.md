@@ -1,5 +1,12 @@
 #### react-native android ios
 
+```
+fdb117b3cb4b46c2bcfd367b07220e55a49528a4
+
+Prodction: HnjS3VTEbsGbqEa70Hh7RneEVsyBe45d0faa-ecd3-4aeb-9255-7f3255171b68
+staging:  2YwiYWXLVM4elR8noUyTMI0-eflTe45d0faa-ecd3-4aeb-9255-7f3255171b68
+
+```
 ## 项目初始化中遇到的问题
 
  (ios)
