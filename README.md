@@ -1,5 +1,11 @@
 #### react-native android ios
 
+.dev-master 分支为平时开发分支
+
+.code-push-demo 后面带demo的为合并master主干的测试分支
+
+...
+
 ## 项目初始化中遇到的问题
 
  (ios)
