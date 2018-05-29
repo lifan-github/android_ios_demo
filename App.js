@@ -54,9 +54,6 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        {/*<Text>文字默认是14px</Text>*/}
-        {/*<Text style={{fontSize: FontSize(14)}}>已适配文字14px</Text>*/}
-
         <View style={{height: 100, width: autoWidth(375/2), backgroundColor: 'blue'}}/>
         <View style={{height: autoHeight(667/2), width: 200, backgroundColor: 'red'}}/>
       </View>
