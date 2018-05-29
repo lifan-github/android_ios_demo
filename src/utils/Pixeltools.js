@@ -25,21 +25,20 @@ PixelRatio.get() === 3.5 Nexus 6
 
 import {
   Dimensions,
+  PixelRatio
 } from 'react-native';
 
-let init_height = 667;
-let init_width = 375; //以iPhone6设计为例
+let uiWidthPx = 375;
+let uiHeightPx = 667; //以iPhone6设计为例
 
-export const deviceWidth = Dimensions.get('window').width;      //设备的宽度
-export const deviceHeight = Dimensions.get('window').height;    //设备的高度
-console.log(deviceHeight,'deviceHeight')
+export const deviceWidthDp = Dimensions.get('window').width;      //设备的宽度
+export const deviceHeightDp = Dimensions.get('window').height;    //设备的高度
+console.log(deviceWidthDp, deviceHeightDp, PixelRatio.get());
 
-//适配高度 例如我的设计稿某个样式高度是50pt autoHeight(50)
-export function autoHeight(value) {
-  return deviceHeight * value / init_height;
-}
-
-/*宽度适配，例如我的设计稿某个样式宽度是50pt，那么使用就是：autoWidth(50)*/
-export function autoWidth(value) {
-  return deviceWidth * value / init_width;
+//宽度适配
+/**
+ * <View style={{height: px2dp(400), width: px2dp(200), backgroundColor: 'blue'}}/>
+ */
+export function px2dp(uiElementPx) {
+  return uiElementPx * deviceWidthDp / uiWidthPx;
 }

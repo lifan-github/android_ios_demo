@@ -11,7 +11,7 @@ import {
   Alert,
 } from 'react-native';
 import codePush from 'react-native-code-push';
-import {autoHeight, autoWidth} from './src/utils/Pixeltools';
+import {px2dp} from './src/utils/Pixeltools';
 
 type Props = {};
 export default class App extends Component<Props> {
@@ -43,8 +43,7 @@ export default class App extends Component<Props> {
   render() {
     return (
       <View style={styles.container}>
-        <View style={{height: 100, width: autoWidth(375/2), backgroundColor: 'blue'}}/>
-        <View style={{height: autoHeight(667/2), width: 200, backgroundColor: 'red'}}/>
+        <View style={{height: px2dp(400), width: px2dp(200), backgroundColor: 'blue'}}/>
       </View>
     );
   }
