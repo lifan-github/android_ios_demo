@@ -11,11 +11,9 @@ import {
   Text,
   View,
   Alert,
-  PixelRatio
 } from 'react-native';
 import codePush from 'react-native-code-push';
 import {autoHeight, autoWidth} from './src/utils/Pixeltools';
-import FontSize from './src/utils/FontSize';
 
 const instructions = Platform.select({
   ios: 'Press Cmd+R to reload,\n' +
