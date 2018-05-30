@@ -1,5 +1,14 @@
 ## react-native android ios
 
+#### 文件夹目录介绍
+```
+// src/utils/GlobalFun.js 里面存放一些方法
+// src/utils/FontSize.js 文字的适配
+// src/components 公共组件
+// src/pages 展示界面
+
+
+```
 
 .dev-master 分支为平时开发分支
 

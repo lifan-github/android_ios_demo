@@ -11,7 +11,7 @@ import {
   Alert,
 } from 'react-native';
 import codePush from 'react-native-code-push';
-import {px2dp} from './src/utils/Pixeltools';
+import {px2dp} from './src/utils/GlobalFun';
 
 type Props = {};
 export default class App extends Component<Props> {
