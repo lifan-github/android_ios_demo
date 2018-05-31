@@ -25,6 +25,8 @@
 5、react-native-extended-stylesheet ---> https://github.com/vitalets/react-native-extended-stylesheet
 致力于react-native 样式的扩展
 
+#### 相关分支的demo
+
 .dev-master 分支为平时开发分支
 
 .code-push-demo 后面带demo的为合并master主干的测试分支
