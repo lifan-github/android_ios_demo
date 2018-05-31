@@ -1,57 +1,34 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- * @flow
- */
+import React from 'react'
+import {View, Platform, Button} from 'react-native'
+import {createStackNavigator} from 'react-navigation'
+import {MainNavigator} from './plainNavigation/StackNavigator';
 
-import React, { Component } from 'react';
-import {
-  StyleSheet,
-  View,
-  Alert,
-} from 'react-native';
-import codePush from 'react-native-code-push';
-import {px2dp} from './src/utils/GlobalFun';
+const Index = ({ navigation }) => (
+  <View style={{flex: 1, marginTop: 50}}>
+    <Button
+      buttonStyle={{marginVertical: 20}}
+      title={'react-navigation导航组件基本用法'}
+      onPress={() => navigation.navigate('Main')}
+    />
+  </View>
+);
 
-type Props = {};
-export default class App extends Component<Props> {
-  componentDidMount(){
-    codePush.checkForUpdate("2YwiYWXLVM4elR8noUyTMI0-eflTe45d0faa-ecd3-4aeb-9255-7f3255171b68").then((update) => {
-      console.log('update is ',update);
-      if(!update){
-        Alert.alert("提示","已是最新版本了",[
-          {text:"Ok", onPress:()=>{ console.log("点了OK");}}
-        ]);
-      }else{
-        codePush.sync({
-          deploymentKey: "2YwiYWXLVM4elR8noUyTMI0-eflTe45d0faa-ecd3-4aeb-9255-7f3255171b68",
-          updateDialog: {
-            title: '更新提示', // 要显示的更新通知的标题. Defaults to “Update available”
-            appendReleaseDescription: false, // 是否显示更新description，默认false
-            descriptionPrefix: "更新内容：\n",
-            mandatoryUpdateMessage: "1、处理了一些已知bug \n2、转让算力添加 \n", //强制更新时，更新通知. Defaults to “An update is available that must be installed.”.
-            mandatoryContinueButtonLabel: "更新", // 强制更新的按钮文字. 默认 to “Continue”.
-            optionalIgnoreButtonLabel: '稍后', //非强制更新时，取消按钮文字. Defaults to “Ignore”
-            optionalInstallButtonLabel: '后台更新', //非强制更新时，确认文字. Defaults to “Install”.
-            optionalUpdateMessage: '有新版本了，是否更新？', //非强制更新时，更新通知. Defaults to “An update is available. Would you like to install it?”.
-          },
-          installMode: codePush.InstallMode.IMMEDIATE
-        })
-      }
-    })
-  }
-  render() {
-    return (
-      <View style={styles.container}>
-        <View style={{height: px2dp(400), width: px2dp(200), backgroundColor: 'blue'}}/>
-      </View>
-    );
-  }
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#F5FCFF',
+//路由注册
+const RouteConfigs = {
+  Index: {
+    screen: Index
   },
-});
+  Main: {
+    screen: MainNavigator
+  },
+};
+
+//配置
+const StackNavigatorConfig = {
+  headerMode: 'none',
+  mode: Platform.OS === 'ios' ? 'card' : 'card'
+};
+
+const App = createStackNavigator(RouteConfigs, StackNavigatorConfig);
+
+export default App
