@@ -14,6 +14,8 @@
 
 .code-push-demo 后面带demo的为合并master主干的测试分支
 
+.react-navigation-demo 路由各种案例集合
+
 ...
 
 ## 项目初始化中遇到的问题
