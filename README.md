@@ -1,4 +1,5 @@
 ## react-native android ios
+😁😁😁追求不用自己写代码快速开发Android iOS
 
 #### 文件夹目录介绍
 ```
@@ -7,8 +8,22 @@
 // src/components 公共组件
 // src/pages 展示界面
 
-
 ```
+
+#### 相关组件介绍
+1、react-native-elements
+一套跨平台react-native UI工具包 ---> https://github.com/react-native-training/react-native-elements
+
+2、react-navigation
+处理react-native中的路由 ---> https://github.com/lifan-github/react-navigation-demo
+
+3、采用redux来处理数据流
+
+4、react-native-vector-icons  ---> https://github.com/oblador/react-native-vector-icons
+可定制的图标为反应的本地支持导航/ TabBar / ToolbarAndroid,图像源和完整的样式
+
+5、react-native-extended-stylesheet ---> https://github.com/vitalets/react-native-extended-stylesheet
+致力于react-native 样式的扩展
 
 .dev-master 分支为平时开发分支
 
