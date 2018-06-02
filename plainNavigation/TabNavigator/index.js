@@ -1,15 +1,16 @@
-/**
- * Created by guangqiang on 2017/11/30.
- */
 import React from 'react';
-import {Platform} from 'react-native';
+import {Platform, Alert} from 'react-native';
 import {createBottomTabNavigator} from 'react-navigation';
 import Ionicons from 'react-native-vector-icons/Ionicons';
-import Home from '../Components/Home/Home';
-import People from '../Components/People/People';
-import Chat from '../Components/Chat/Chat';
-import Setting from '../Components/Setting/Setting';
 
+import Home from '../../src/pages/Home/Home'; // 首页
+import People from '../../src/pages/People/People'; //第二页
+import Chat from '../../src/pages/Chat/Chat'; //第三页
+import Setting from '../../src/pages/Setting/Setting'; //第三页
+
+/**
+ * 此页面是对tabBar页面的主要页面路由集中配置
+ */
 
 const RouteConfigs = {
   Home: {
@@ -45,7 +46,18 @@ const RouteConfigs = {
           name={focused ? 'ios-chatboxes' : 'ios-chatboxes-outline'}
           size={26}
           style={{ color: tintColor }}/>
-      )
+      ),
+      tabBarOnPress: () => {
+        Alert.alert(
+          '注意！',
+          '这里做了hook tabBar的点击事件操作，我们可以hook到这个点击事件，处理我们想要处理的业务后再打开 Chat这个页面',
+          [
+            {text: '进入tab页面', onPress: () => navigation.navigate('Chat')},
+            {text: 'Cancel', onPress: () => console.log('Cancel Pressed'), style: 'cancel'},
+          ],
+          { cancelable: false }
+        )
+      },
     }),
   },
   Setting: {

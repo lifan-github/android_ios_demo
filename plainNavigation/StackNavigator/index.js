@@ -1,13 +1,73 @@
 /**
  * Created by guangqiang on 2017/12/1.
  */
-import React from 'react'
-import {createStackNavigator} from 'react-navigation'
-import {TabBar} from '../TabNavigator'
+import React from 'react';
+import {createStackNavigator} from 'react-navigation';
+import {TabBar} from '../TabNavigator';
+import HomeDetails from '../../src/pages/Home/HomeDetails'; //首页详情页
+import Home3 from '../../src/pages/Home/Home3';
+import Home3_1 from '../../src/pages/Home/Home3_1';
+import Home4 from "../../src/pages/Home/Home4";
+import Home5 from '../../src/pages/Home/Home5';
+import Home6 from '../../src/pages/Home/Home6';
+import Back1 from '../../src/pages/Home/Back1';
+import Back2 from '../../src/pages/Home/Back2';
+import Back3 from '../../src/pages/Home/Back3';
 
 const RouteConfigs = {
   Home: {
-    screen: TabBar, // android 默认在顶部，iOS默认在底部
+    screen: TabBar,
+  },
+  HomeDetails: {
+    screen: HomeDetails,
+    navigationOptions: {
+      title: 'HomeDetails',
+    }
+  },
+  Home3: {
+    screen: Home3,
+    navigationOptions: {
+      title: 'Home3',
+    }
+  },
+  Home3_1: {
+    screen: Home3_1,
+    navigationOptions: {
+      title: 'Home3_1',
+    }
+  },
+  Home4: {
+    screen: Home4,
+      navigationOptions: {
+      title: 'Home4',
+    }
+  },
+  Home5: {
+    screen: Home5,
+    navigationOptions: {
+      title: 'Home5',
+    }
+  },
+  Home6: {
+    screen: Home6,
+  },
+  Back1: {
+    screen: Back1,
+    navigationOptions: {
+      title: 'Back1',
+    }
+  },
+  Back2: {
+    screen: Back2,
+    navigationOptions: {
+      title: 'Back2',
+    }
+  },
+  Back3: {
+    screen: Back3,
+    navigationOptions: {
+      title: 'Back3',
+    }
   },
 };
 
