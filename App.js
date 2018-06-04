@@ -1,7 +1,13 @@
-import React from 'react'
-import {View, Text, TouchableOpacity, StyleSheet} from 'react-native'
-import {createStackNavigator} from 'react-navigation'
+import React, {Component} from 'react';
+import {
+  View,
+  Text,
+  TouchableOpacity,
+  StyleSheet,
+} from 'react-native';
+import {createStackNavigator} from 'react-navigation';
 import {MainNavigator} from './plainNavigation/StackNavigator';
+import CardStackStyleInterpolator from "react-navigation/src/views/StackView/StackViewStyleInterpolator";
 
 const styles = StyleSheet.create({
   buttonStyle: {
@@ -24,7 +30,7 @@ const Index = ({ navigation }) => (
       style={styles.buttonStyle}
       onPress={() => navigation.navigate('Main')}
     >
-      <Text style={styles.buttonText}>导航组件基本用法</Text>
+      <Text style={styles.buttonText}>导航组件基本用法666</Text>
     </TouchableOpacity>
   </View>
 );
@@ -42,9 +48,20 @@ const RouteConfigs = {
 //配置
 const StackNavigatorConfig = {
   headerMode: 'none', //页面跳转时，头部的动画模式，有 float 、 screen 、 none 三种
-  mode: 'card'
+  mode: 'card',
+  transitionConfig: (() => ({
+    //页面跳转动画实现
+    screenInterpolator: CardStackStyleInterpolator.forHorizontal,
+  })),
 };
 
 const App = createStackNavigator(RouteConfigs, StackNavigatorConfig);
 
-export default App
+
+export  default class AppRoot extends Component {
+  render(){
+    return (
+      <App/>
+    )
+  }
+}

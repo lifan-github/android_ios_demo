@@ -74,6 +74,10 @@ const RouteConfigs = {
   }
 };
 
+
+
+//TabNavigator属性介绍
+
 const TabNavigatorConfigs = {
   initialRouteName: 'Home',
   lazy: true,

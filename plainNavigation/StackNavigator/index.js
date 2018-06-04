@@ -2,7 +2,11 @@
  * Created by guangqiang on 2017/12/1.
  */
 import React from 'react';
+import {
+  ToastAndroid
+} from 'react-native';
 import {createStackNavigator} from 'react-navigation';
+import CardStackStyleInterpolator from 'react-navigation/src/views/StackView/StackViewStyleInterpolator';
 import {TabBar} from '../TabNavigator';
 import HomeDetails from '../../src/pages/Home/HomeDetails'; //首页详情页
 import Home3 from '../../src/pages/Home/Home3';
@@ -72,8 +76,8 @@ const RouteConfigs = {
 };
 
 const StackNavigatorConfig = {
-  initialRouteName: 'Home',
-  initialRouteParams: {initPara: '初始页面参数'},
+  initialRouteName: 'Home', //设置默认的页面组件，必须是上面已注册的页面组件
+  initialRouteParams: {initPara: '初始页面参数'}, //初始路由参数
   navigationOptions: {
     title: '首页',
     headerTitleStyle: {fontSize: 18, color: '#fff'},
@@ -82,12 +86,14 @@ const StackNavigatorConfig = {
   mode: 'card',
   headerMode: 'screen',
   cardStyle: {backgroundColor: "#ffffff"},
-  transitionConfig: (() => ({
+  transitionConfig: (() => ({ //自定义设置滑动返回的配置
+    //页面跳转动画实现
+    screenInterpolator: CardStackStyleInterpolator.forHorizontal,
   })),
-  onTransitionStart: (() => {
+  onTransitionStart: (() => { //当转换动画即将开始时被调用的功能
     console.log('页面跳转动画开始')
   }),
-  onTransitionEnd: (() => {
+  onTransitionEnd: (() => { //当转换动画完成，将被调用的功能
     console.log('页面跳转动画结束')
   }),
 };
@@ -97,30 +103,21 @@ const MainNavigator = createStackNavigator(RouteConfigs, StackNavigatorConfig);
 const defaultStateAction = MainNavigator.router.getStateForAction;
 
 MainNavigator.router.getStateForAction = (action, state) => {
-  if (state && action.key && action.type === 'Navigation/BACK') {
-    const desiredRoute = state.routes.find((route) => route.routeName === action.key);
-    if (desiredRoute) {
-      const index = state.routes.indexOf(desiredRoute);
-      const finalState = {
-        ...state,
-        routes: state.routes.slice(0, index + 1),
-        index: index,
-      };
-      return finalState
-    } else {
-      if (state.routes.length > action.key) {
-        const stacksLength = state.routes.length - action.key;
-        const stacks = state.routes.slice(0, stacksLength);
-        const finalState = {
-          ...state,
-          routes: stacks,
-          index: stacksLength - 1,
-        };
-        return finalState
-      }
+  if(state && action.type === 'Navigation/BACK' && state.routes.length === 1) {
+    let now = new Date().getTime();
+    if(this.lastBackPressed && (now - this.lastBackPressed < 2500)) {
+      return false;
     }
+    this.lastBackPressed = now;
+    ToastAndroid.show('再点击一次退出应用',ToastAndroid.SHORT);
+    const routes = [...state.routes];
+    return {
+      ...state,
+      ...state.routes,
+      index: routes.length - 1,
+    };
   }
-  return defaultStateAction(action, state)
+  return defaultStateAction(action,state);
 };
 
 export {MainNavigator}

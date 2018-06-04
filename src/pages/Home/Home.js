@@ -1,13 +1,10 @@
-/**
- * Created by guangqiang on 2017/12/1.
- */
 import React, {Component} from 'react'
 import {
   Text,
   View,
   ScrollView,
   StyleSheet,
-  TouchableOpacity
+  TouchableOpacity,
 } from 'react-native';
 
 class Home extends Component {
@@ -15,7 +12,7 @@ class Home extends Component {
     return (
       <View style={{flex: 1}}>
         <ScrollView>
-          <Text style={styles.textStyle}>当前页面为Home页面</Text>
+          <Text style={styles.textStyle}>当前为Home页面</Text>
           <TouchableOpacity
             style={styles.buttonStyle}
             onPress={() => this.props.navigation.navigate('HomeDetails')}
