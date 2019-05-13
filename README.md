@@ -78,6 +78,7 @@ node_modules/react-native/third-party/boost_1_63_0
 #### 2、创建codepush账号
 
 在控制台输入 code-push register 后，将会打开一个网页进行注册
+已经注册账号了 会提示[Error]  You are already logged in from this machine.
 CodePush账号支持 github和 Microsofe，选其中一个就可以了。
 我选择的是 github，授权完毕后，网页将会显示一个token，复制它到控制台的中就enter成功了。
 
